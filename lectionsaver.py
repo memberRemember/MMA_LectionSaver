@@ -107,7 +107,7 @@ start_lecture_num = int(input("Введите номер лекции, с кот
 start_course_norm = re.sub(r'[\s_]+', '', start_course_input)
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False, slow_mo=200)
+    browser = p.chromium.launch(headless=False)
     page = browser.new_page()
 
     login(page)
