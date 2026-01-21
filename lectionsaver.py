@@ -112,7 +112,7 @@ start_course_name = input("Введите название курса, с кот
 start_lecture_num = int(input("Введите номер лекции, с которой начать скачивание (например 6): ").strip())
 
 with sync_playwright() as p:
-    browser = p.chromium.launch(headless=False, slow_mo=200)
+    browser = p.chromium.launch(headless=False)
     page = browser.new_page()
 
     try:
@@ -142,7 +142,7 @@ with sync_playwright() as p:
             else:
                 continue
 
-        print(f"▶ Курс {idx}/{len(courses)}: {course_name}")
+        print(f" Курс {idx}/{len(courses)}: {course_name}")
 
         lecture_links = get_lecture_links(page, course_url)
         if not lecture_links:
